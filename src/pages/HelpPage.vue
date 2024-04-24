@@ -10,14 +10,3 @@
     </ol>
   </q-page>
 </template>
-
-<script setup>
-
-</script>
-
-<style>
-  .container {
-    max-width: 1024px;
-    margin: 0 auto;
-  }
-</style>

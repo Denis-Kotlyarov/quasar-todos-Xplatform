@@ -1,4 +1,7 @@
 {
   "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": true
+  "editor.guides.bracketPairs": true,
+  "scss.validate": false, // Отключение встроенной проверки SCSS
+  "sass.validate": false, // Отключение встроенной проверки Sass
+  "sass.includePath": "../src/css/quasar.variables.scss"
 }

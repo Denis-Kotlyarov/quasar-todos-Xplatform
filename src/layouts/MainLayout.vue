@@ -82,17 +82,13 @@
     </q-drawer>
 
     <q-page-container>
-      
-        
-          <router-view v-slot="{ Component, route }">
-            <Transition>
-              <keep-alive>
-                <component :is="Component" :key="route.path" />
-              </keep-alive>
-            </Transition>
-          </router-view>
-        
-      
+      <router-view v-slot="{ Component, route }">
+        <Transition>
+          <keep-alive>
+            <component :is="Component" :key="route.path" />
+          </keep-alive>
+        </Transition>
+      </router-view>
     </q-page-container>
   </q-layout>
 </template>

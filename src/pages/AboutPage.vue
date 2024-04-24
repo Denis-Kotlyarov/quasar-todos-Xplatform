@@ -6,14 +6,3 @@
     Voluptates quasi obcaecati quo recusandae iusto veniam unde beatae voluptatibus, ad eum, cumque deserunt error consequuntur suscipit corporis ea doloremque temporibus, expedita aspernatur asperiores hic eos saepe? Ad, rem obcaecati!</p>
   </q-page>
 </template>
-
-<script setup>
-
-</script>
-
-<style>
-  .container {
-    max-width: 1024px;
-    margin: 0 auto;
-  }
-</style>

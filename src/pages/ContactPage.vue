@@ -26,10 +26,6 @@
 
 <style scoped lang="scss">
   @import "../css/quasar.variables.scss";
-  .container {
-    max-width: 1024px;
-    margin: 0 auto;
-  }
   .sendBtn {
     border-radius: 10px;
     width: 160px;
