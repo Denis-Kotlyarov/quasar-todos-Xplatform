@@ -8,9 +8,9 @@
       <div class="q-mb-lg">
         <q-input filled v-model="newTodo" placeholder="Buy bread..." @keyup.enter="addNewTodo">
           <template v-slot:prepend>
-            <q-icon name="event" v-slot:prepend/>
+            <q-icon name="event"/>
           </template>
-          <template v-slot:append class="flex justify-between">
+          <template v-slot:append>
             <q-btn color="accent" label="Add task" class="btnText" :disabled="!newTodo" @click="addNewTodo"/>
           </template>
         </q-input>
