@@ -22,7 +22,7 @@
       v-model="leftDrawerOpen"
       show-if-above
       :width="240"
-      :breakpoint="610"
+      :breakpoint="600"
     >
       <q-scroll-area style="height: calc(100% - 110px); margin-top: 110px; border-right: 1px solid #ddd">
         <q-list padding>
