@@ -5,11 +5,12 @@
         <h5 class="q-my-none q-pt-xl q-pb-md q-pl-lg text-weight-medium">Todos</h5>
       </div>
 
-      <div class="q-mb-lg">
+      <div class="q-mb-lg q-px-lg">
         <q-input filled v-model="newTodo" placeholder="Buy bread..." @keyup.enter="addNewTodo">
           <template v-slot:prepend>
-            <q-icon name="event"/>
+            <q-icon  name="event"/>
           </template>
+
           <template v-slot:append>
             <q-btn color="accent" label="Add task" class="btnText" :disabled="!newTodo" @click="addNewTodo"/>
           </template>
@@ -17,37 +18,58 @@
       </div>
       
       <div class="sign">
-        <q-list>
+        <q-list class="q-px-lg">
           <!-- tada bounceOutDown прикольные -->
           <transition-group
             appear
             enter-active-class="animated fadeIn"
             leave-active-class="animated tada"
           >
-            <q-item
+            <q-chip
               @click="task.done = !task.done"
-              clickable
               tag="label" 
               v-ripple
               v-for="task in tasks" 
               :key="task.id" 
-              class="list-item q-my-md"
+              class="list-item q-mb-md"
               :class="{'done bg-green-2' : task.done}"
             >
               <q-item-section avatar>
                 <!-- class="no-pointer-events" -->
                 <q-checkbox v-model="task.done" val="teal" color="accent"/> 
               </q-item-section>
+
               <q-item-section>
                 <q-item-label :class="{'text-decor' : task.done}">{{ task.title }}</q-item-label>
               </q-item-section>
+
               <q-item-section v-if="task.done" side>
                 <q-icon name="delete" class="delete-icon" color="accent" @click="deleteTodo(task)"/>
               </q-item-section>
-            </q-item>
+            </q-chip>
           </transition-group>
         </q-list>
       </div>
+
+      <!-- <q-chip
+        text-color="accent"
+        size="25px" 
+        class="list-item"
+      >
+        <q-item-section avatar>
+          <q-checkbox val="teal" color="accent"/> 
+        </q-item-section>
+      </q-chip> -->
+
+      <q-chip 
+        icon="bookmark"
+        text-color="accent"
+        size="25px" 
+        class="no-task absolute-center" 
+        v-if="!tasks.length"
+      >
+        No tasks!
+      </q-chip>
     </div>
   </q-page>
 </template>
@@ -91,11 +113,11 @@
   }
 
   onMounted(() => {
-    const labels = document.querySelectorAll('.sign .q-item');
-    // Удаляем класс q-hoverable у каждого элемента label
-    labels.forEach(label => {
-      label.classList.remove('q-hoverable');
-    });
+    // const labels = document.querySelectorAll('.sign .q-item');
+    // // Удаляем класс q-hoverable у каждого элемента label
+    // labels.forEach(label => {
+    //   label.classList.remove('q-hoverable');
+    // });
     //localStorage получаем
     if (localStorage.getItem('todo_items')) {
       let localTasks = JSON.parse(localStorage.getItem('todo_items'))
@@ -109,10 +131,10 @@
     async (newTasks) => {
       await nextTick();
 
-      const labels = document.querySelectorAll('.sign .q-item');
-      labels.forEach(label => {
-        label.classList.remove('q-hoverable');
-      });
+      // const labels = document.querySelectorAll('.sign .q-item');
+      // labels.forEach(label => {
+      //   label.classList.remove('q-hoverable');
+      // });
       //localStorage задаем
       localStorage.setItem('todo_items', JSON.stringify(newTasks))
     },
@@ -131,6 +153,8 @@
     border: 1px solid #d1c4e9;
     animation-duration: 0.6s; /* don't forget to set a duration! */
     animation-timing-function: ease-in-out;
+    width: 100%;
+    padding: 30px 10px;
   }
   .done {
     color: rgb(0, 192, 32);
@@ -144,5 +168,9 @@
   }
   .btnText {
     font-size: 14px;
+  }
+  .no-task {
+    opacity: 0.3;
+    background: #d1c4e9;
   }
 </style>
